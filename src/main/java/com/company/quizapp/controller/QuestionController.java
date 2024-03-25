@@ -12,5 +12,8 @@ public class QuestionController {
 
     @Autowired
     QuestionService questionService;
-    
+    @GetMapping("/allQuestions")
+    public String getAllQuestions(){
+        return questionService.getAllQuestions();
+    }
 }
