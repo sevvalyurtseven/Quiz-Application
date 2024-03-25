@@ -29,4 +29,10 @@ return questionDao.findAll();
         questionDao.deleteById(id);
         return "Question deleted successfully";
     }
+
+    public String updateQuestion(Integer id, Question updatedQuestion) {
+        updatedQuestion.setId(id);
+        questionDao.save(updatedQuestion);
+        return "Question updated successfully";
+    }
 }
