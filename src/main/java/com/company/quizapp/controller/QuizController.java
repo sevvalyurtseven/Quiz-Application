@@ -3,6 +3,7 @@ package com.company.quizapp.controller;
 import com.company.quizapp.dao.QuestionDao;
 import com.company.quizapp.entity.Question;
 import com.company.quizapp.entity.QuestionWrapper;
+import com.company.quizapp.entity.Response;
 import com.company.quizapp.service.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,5 +28,10 @@ return quizService.createQuiz(category, numQ, title);
     @GetMapping("/get/{id}")
     public ResponseEntity<List<QuestionWrapper>> getQuizQuestions(@PathVariable Integer id){
         return quizService.getQuizQuestions(id);
+    }
+
+    @PostMapping("/submit/{id}")
+    public ResponseEntity<Integer> submitQuiz(@PathVariable Integer id, @RequestBody List<Response> responses){
+        return quizService.calculateResult(id, responses);
     }
 }
