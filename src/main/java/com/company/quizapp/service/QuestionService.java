@@ -24,4 +24,9 @@ return questionDao.findAll();
         questionDao.save(question);
         return "success";
     }
+
+    public String deleteQuestion(Integer id) {
+        questionDao.deleteById(id);
+        return "Question deleted successfully";
+    }
 }
